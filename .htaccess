@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+
+RewriteRule ^bater/(config|controllers|core|database|middleware|models|services|vendor)(/|$) - [F,L,NC]
+RewriteRule ^bater/(\.env|bootstrap\.php|composer\.(json|lock)|create_admin\.php|get_admin\.php)$ - [F,L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
